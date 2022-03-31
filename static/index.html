@@ -21,7 +21,6 @@ be hosted on Microsoft Azure.</p>
 
 <script>
     async function fetchData() {
-        document.getElementById("div2").innerHTML = "text here";
         var response = await fetch("/history");
         var responseText = await response.text();
         document.getElementById("fetchedResult").innerHTML = responseText;

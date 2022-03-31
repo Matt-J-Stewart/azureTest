@@ -1,7 +1,4 @@
-const MongoClient = require("mongodb").MongoClient;
-const DBNAME = "Quiz-Capstone";
-const CONNECTION_URL = 'mongodb+srv://matthewjstewart:Sn3akySnak3@quizcluster.5oc2z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const DATABASE_NAME = 'Quiz-Capstone'
+const getData = require("./date-time.js");
 
 
 
@@ -10,6 +7,7 @@ const express = require('express')
 app = express()
 
 var url = require('url');
+const { getEnvironmentData } = require("worker_threads");
 var dt = require('./date-time');
 
 const port = process.env.PORT || 3000
@@ -26,21 +24,9 @@ app.use(express.static(__dirname + '/static'))
 app.get('/history', async (request, response) => {
    
 	MongoClient.connect(CONNECTION_URL, async function(error, client) {
-		var database = client.db(DATABASE_NAME);
-		var collection = database.collection("Quiz");
-		var cursor = collection.find({quizName: "HST01"}).limit(1);
-		var allVals = await cursor.toArray();
-		var testVar = allVals[0];
-		client.close();
-		console.log("Did it work")
-		// var obj1 = {
-		// 	quizName: testVar.quizName,
-		// 	quizQuestions: testVar.quizQuestions
-		// }
-		//response.send("testVar");
-	})
-	response.send("testVar");
-
+		getEnvironmentData.getData("HST01", function(obj1) {
+			response.send(obj1)
+		});
  })
 
 
