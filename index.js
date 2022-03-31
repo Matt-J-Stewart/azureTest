@@ -32,7 +32,7 @@ app.get('/history', async (request, response) => {
 		var allVals = await cursor.toArray();
 		var testVar = allVals[0];
 		client.close();
-		console.log(testVar)
+		console.log("TEST")
 		response.send("BLANK")
 		});
  })
