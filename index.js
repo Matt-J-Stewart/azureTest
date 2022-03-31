@@ -1,3 +1,11 @@
+const MongoClient = require("mongodb").MongoClient;
+const DBNAME = "Quiz-Capstone";
+const CONNECTION_URL = 'mongodb+srv://matthewjstewart:Sn3akySnak3@quizcluster.5oc2z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const DATABASE_NAME = 'Quiz-Capstone'
+
+
+
+
 const express = require('express')
 app = express()
 
@@ -13,6 +21,32 @@ app.use(express.static(__dirname + '/static'))
 
 // The app.get functions below are being processed in Node.js running on the server.
 // Implement a custom About page.
+
+
+app.get('/history', async (request, response) => {
+   
+	MongoClient.connect(CONNECTION_URL, async function(error, client) {
+		var database = client.db(DATABASE_NAME);
+		var collection = database.collection("Quiz");
+		var cursor = collection.find({quizName: "HST01"}).limit(1);
+		var allVals = await cursor.toArray();
+		var testVar = allVals[0];
+		client.close();
+		var obj1 = {
+			quizName: testVar.quizName,
+			quizQuestions: testVar.quizQuestions
+		}
+		response.send(obj1);
+	})
+ })
+
+
+
+
+
+
+
+
 app.get('/about', (request, response) => {
 	console.log('Calling "/about" on the Node.js server.')
 	response.type('text/plain')

@@ -10,10 +10,22 @@ be hosted on Microsoft Azure.</p>
 <br><br>
 
 <h1>HERE IS ANOTHER BUTTON</h1>
-<button>Click Me</button>
+<button type="button" onclick="fetchData()">Click Me</button>
+<div id="fetchedResult"></div>
 
-Additional application functionality includes:<br />
+
 <a href="fetching-from-server.html">Accessing Node.js Server-Side Application Programming Interfaces (APIs)</a><br />
 <a href="fetching-remote-dog-breeds.html">Accessing Remote Application Programming Interfaces (APIs)</a>
+
+
+<script>
+    async function fetchData() {
+        var response = await fetch("/history");
+        const responseText = await response.text();
+        document.getElementById("fetchedResult").innerHTML = responseText;
+    }
+</script>
+
+
 </body>
 </html>
