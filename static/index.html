@@ -12,6 +12,7 @@ be hosted on Microsoft Azure.</p>
 <h1>HERE IS ANOTHER BUTTON</h1>
 <button type="button" onclick="fetchData()">Click Me</button>
 <div id="fetchedResult"></div>
+<div id="div2"></div>
 
 
 <a href="fetching-from-server.html">Accessing Node.js Server-Side Application Programming Interfaces (APIs)</a><br />
@@ -21,8 +22,9 @@ be hosted on Microsoft Azure.</p>
 <script>
     async function fetchData() {
         var response = await fetch("/history");
-        const responseText = await response.text();
+        
         document.getElementById("fetchedResult").innerHTML = responseText;
+        document.getElementById("div2").innerHTML = "text here";
     }
 </script>
 
