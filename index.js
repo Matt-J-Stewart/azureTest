@@ -23,10 +23,7 @@ app.use(express.static(__dirname + '/static'))
 
 app.get('/history', async (request, response) => {
    
-	getData.getData("HST01", function(obj1) {
-	 
-	 response.send(obj1);
-	});
+	response.send("TESTING");
  })
 
 

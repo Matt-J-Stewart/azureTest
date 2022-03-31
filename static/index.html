@@ -19,16 +19,15 @@ be hosted on Microsoft Azure.</p>
 <a href="fetching-remote-dog-breeds.html">Accessing Remote Application Programming Interfaces (APIs)</a>
 
 
-<!-- <script>
+<script>
     async function fetchData() {
-        var response = await fetch("/history").then(response => rsponse.json())
-        .then(data => {
-            document.getElementById("fetchedResult").innerHTML = data;
-        })
+        var response = await fetch("/history");
+        var responseText = await response.text();
+        document.getElementById("fetchedResult").innerHTML = "BUTTON CLICKED"
         
         
     }
-</script> -->
+</script>
 
 
 </body>
