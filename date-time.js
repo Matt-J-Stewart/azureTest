@@ -1,5 +1,4 @@
 const { response } = require("express");
-const chalk = require('chalk');
 
 
 var obj1 = undefined;
