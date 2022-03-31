@@ -24,19 +24,12 @@ app.use(express.static(__dirname + '/static'))
 
 
 app.get('/history', async (request, response) => {
-    MongoClient.connect(CONNECTION_URL, async function(error,client) {
-        var database = client.db(DATABASE_NAME);
-        var collection = database.collection("Quiz");
-        // var cursor = collection.find({quizName: "HST01"}).limit(1);
-        // var allVals = await cursor.toArray();
-        // var testVar = allVals[0];
-        // client.close();
-        console.log("connected")
-        //callback(testVar);
-    });
-	response.send("TESTING");
+   
+	getData.getData("HST01", function(obj1) {
+	 
+	 response.send("HELLO");
+	});
  })
-
 
 
 
