@@ -27,10 +27,10 @@ app.get('/history', async (request, response) => {
     MongoClient.connect(CONNECTION_URL, async function(error,client) {
         var database = client.db(DATABASE_NAME);
         var collection = database.collection("Quiz");
-        var cursor = collection.find({quizName: "HST01"}).limit(1);
-        var allVals = await cursor.toArray();
-        var testVar = allVals[0];
-        client.close();
+        // var cursor = collection.find({quizName: "HST01"}).limit(1);
+        // var allVals = await cursor.toArray();
+        // var testVar = allVals[0];
+        // client.close();
         console.log("connected")
         //callback(testVar);
     });
