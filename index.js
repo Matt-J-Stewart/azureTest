@@ -32,11 +32,11 @@ app.get('/history', async (request, response) => {
 		var allVals = await cursor.toArray();
 		var testVar = allVals[0];
 		client.close();
-		var obj1 = {
-			quizName: testVar.quizName,
-			quizQuestions: testVar.quizQuestions
-		}
-		response.send(obj1);
+		// var obj1 = {
+		// 	quizName: testVar.quizName,
+		// 	quizQuestions: testVar.quizQuestions
+		// }
+		response.send(testVar);
 	})
  })
 
