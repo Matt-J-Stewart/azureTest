@@ -23,12 +23,11 @@ app.use(express.static(__dirname + '/static'))
 
 app.get('/history', async (request, response) => {
    
-	MongoClient.connect(CONNECTION_URL, async function(error, client) {
-		getEnvironmentData.getData("HST01", function(obj1) {
-			response.send(obj1)
-		});
+	getData.getData("HST01", function(obj1) {
+	 
+	 response.send(obj1);
+	});
  })
-})
 
 
 
