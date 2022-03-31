@@ -36,8 +36,10 @@ app.get('/history', async (request, response) => {
 		// 	quizName: testVar.quizName,
 		// 	quizQuestions: testVar.quizQuestions
 		// }
-		response.send("testVar");
+		//response.send("testVar");
 	})
+	response.send("testVar");
+
  })
 
 
