@@ -32,6 +32,7 @@ app.get('/history', async (request, response) => {
 		var allVals = await cursor.toArray();
 		var testVar = allVals[0];
 		client.close();
+		console.log("Did it work")
 		// var obj1 = {
 		// 	quizName: testVar.quizName,
 		// 	quizQuestions: testVar.quizQuestions
