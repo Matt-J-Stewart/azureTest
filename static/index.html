@@ -21,10 +21,11 @@ be hosted on Microsoft Azure.</p>
 
 <script>
     async function fetchData() {
+        document.getElementById("div2").innerHTML = "text here";
         var response = await fetch("/history");
         
         document.getElementById("fetchedResult").innerHTML = response;
-        document.getElementById("div2").innerHTML = "text here";
+        
     }
 </script>
 
