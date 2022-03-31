@@ -14,7 +14,7 @@ function getData(testP, callback) {
         var allVals = await cursor.toArray();
         var testVar = allVals[0];
         client.close();
-        console.log(chalk.red(testP))
+        console.log(testP)
         callback(testVar);
     });
 };
