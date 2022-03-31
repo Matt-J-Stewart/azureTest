@@ -1,6 +1,8 @@
 const getData = require("./date-time.js");
 
-
+const MongoClient = require("mongodb").MongoClient;
+const CONNECTION_URL = 'mongodb+srv://matthewjstewart:Sn3akySnak3@quizcluster.5oc2z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const DATABASE_NAME = 'Quiz-Capstone'
 
 
 const express = require('express')
@@ -22,7 +24,16 @@ app.use(express.static(__dirname + '/static'))
 
 
 app.get('/history', async (request, response) => {
-   
+    MongoClient.connect(CONNECTION_URL, async function(error,client) {
+        var database = client.db(DATABASE_NAME);
+        var collection = database.collection("Quiz");
+        var cursor = collection.find({quizName: "HST01"}).limit(1);
+        var allVals = await cursor.toArray();
+        var testVar = allVals[0];
+        client.close();
+        console.log("connected")
+        //callback(testVar);
+    });
 	response.send("TESTING");
  })
 
